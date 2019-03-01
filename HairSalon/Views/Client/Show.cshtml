@@ -1,0 +1,25 @@
+<h1>Client's Details: </h1>
+
+<h2>@Model["client"].GetName()</h2>
+<h3>Stylist: @Model["stylist"].GetName()</h3>
+
+
+<form action='/clients/@Model["client"].GetId()/reviews/new' method='get'>
+<button type="submit">Add a review</button>
+</form>
+
+<form action='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/edit' method='get'>
+<button type="submit">Edit this Restaurant</button>
+</form>
+
+<form action='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/delete' method='post'>
+<button type="submit">Delete this client</button>
+</form>
+
+<form action='/stylists/@Model["stylist"].GetId()/clients/new' method='get'>
+<button type="submit">Add another client</button>
+</form>
+
+<form action='/stylists' method='get'>
+<button type="submit">View all stylists</button>
+</form>
