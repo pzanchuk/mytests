@@ -24,20 +24,6 @@ namespace HairSalon.Models
       return _id;
     }
 
-    public static void ClearAll()
-    {
-      MySqlConnection conn = DB.Connection();
-      conn.Open();
-      var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"DELETE FROM stylists;";
-      cmd.ExecuteNonQuery();
-      conn.Close();
-      if (conn != null)
-      {
-       conn.Dispose();
-      }
-    }
-
     public static List<Stylist> GetAll()
     {
       List<Stylist> allStylists = new List<Stylist>{};
@@ -77,7 +63,7 @@ namespace HairSalon.Models
       while(rdr.Read())
       {
         stylistId = rdr.GetInt32(0);
-        stylistName = rdr.GetString(1);    
+        stylistName = rdr.GetString(1);
       }
       Stylist newStylist = new Stylist(stylistName, stylistId);
       conn.Close();
@@ -116,21 +102,6 @@ namespace HairSalon.Models
       return allStylistClients;
     }
 
-    // public override bool Equals(System.Object otherStylist)
-    // {
-    //   if (!(otherStylist is Stylist))
-    //   {
-    //     return false;
-    //   }
-    //   else
-    //   {
-    //     Stylist newStylist = (Stylist) otherStylist;
-    //     bool idEquality = this.GetId().Equals(newStylist.GetId());
-    //     bool nameEquality = this.GetName().Equals(newStylist.GetName());
-    //     return (idEquality && nameEquality);
-    //   }
-    // }
-
     public void Save()
     {
       MySqlConnection conn = DB.Connection();
@@ -150,23 +121,35 @@ namespace HairSalon.Models
       }
     }
 
-//     public void Delete()
-//     {
-//       MySqlConnection conn = DB.Connection();
-//       conn.Open();
-//       var cmd = conn.CreateCommand() as MySqlCommand;
-//       cmd.CommandText = @"DELETE FROM stylists WHERE id = @stylist_id;";
-//       MySqlParameter searchId = new MySqlParameter();
-//       searchId.ParameterName = "@stylist_id";
-//       searchId.Value = _id;
-//       cmd.Parameters.Add(searchId);
-//       cmd.ExecuteNonQuery();
-//       conn.Close();
-//       if (conn != null)
-//       {
-//         conn.Dispose();
-//       }
-//     }
-//
+// ==============================TEST METHODS================================
+
+    public override bool Equals(System.Object otherStylist)
+    {
+      if (!(otherStylist is Stylist))
+      {
+        return false;
+      }
+      else
+      {
+        Stylist newStylist = (Stylist) otherStylist;
+        bool idEquality = this.GetId().Equals(newStylist.GetId());
+        bool nameEquality = this.GetName().Equals(newStylist.GetName());
+        return (idEquality && nameEquality);
+      }
+    }
+
+    public static void ClearAll()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM stylists;";
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+       conn.Dispose();
+      }
+    }
   }
 }

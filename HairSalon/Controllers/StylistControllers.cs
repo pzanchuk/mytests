@@ -54,14 +54,5 @@ namespace HairSalon.Controllers
       return View("Show", model);
     }
 
-    // [HttpGet("/stylists/{id}/delete")]
-    // public ActionResult Delete(int id)
-    // {
-    //   Stylist selectedStylist = Stylist.Find(id);
-    //   selectedStylist.Delete();
-    //   return RedirectToAction("Index");
-    // }
-
-
   }
 }

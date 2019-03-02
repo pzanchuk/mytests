@@ -45,20 +45,6 @@ namespace HairSalon.Models
       return allClients;
     }
 
-    public static void ClearAll()
-    {
-      MySqlConnection conn = DB.Connection();
-      conn.Open();
-      var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"DELETE FROM clients;";
-      cmd.ExecuteNonQuery();
-      conn.Close();
-      if (conn != null)
-      {
-       conn.Dispose();
-      }
-    }
-
     public static Client Find(int id)
     {
       MySqlConnection conn = DB.Connection();
@@ -88,22 +74,6 @@ namespace HairSalon.Models
       return newClient;
     }
 
-    // public override bool Equals(System.Object otherClient)
-    // {
-    //   if (!(otherClient is Client))
-    //   {
-    //     return false;
-    //   }
-    //   else
-    //   {
-    //      Client newClient = (Client) otherClient;
-    //      bool idEquality = this.GetId() == newClient.GetId();
-    //      bool nameEquality = this.GetName() == newClient.GetName();
-    //      bool stylistEquality = this.GetStylistId() == newClient.GetStylistId();
-    //      return (idEquality && nameEquality && stylistEquality);
-    //    }
-    // }
-
     public void Save()
     {
       MySqlConnection conn = DB.Connection();
@@ -127,47 +97,36 @@ namespace HairSalon.Models
       }
     }
 
-    // public void Edit(string newName)
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"UPDATE clients SET name = @newName WHERE id = @searchId;";
-    //   MySqlParameter searchId = new MySqlParameter();
-    //   searchId.ParameterName = "@searchId";
-    //   searchId.Value = _id;
-    //   cmd.Parameters.Add(searchId);
-    //   MySqlParameter name = new MySqlParameter();
-    //   name.ParameterName = "@newName";
-    //   name.Value = newName;
-    //   cmd.Parameters.Add(name);
-    //   cmd.ExecuteNonQuery();
-    //   _name = newName;
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    // }
+// ==============================TEST METHODS================================
 
-    // public void Delete()
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"DELETE FROM clients WHERE id = @searchId;";
-    //   MySqlParameter searchId = new MySqlParameter();
-    //   searchId.ParameterName = "@searchId";
-    //   searchId.Value = _id;
-    //   cmd.Parameters.Add(searchId);
-    //   cmd.ExecuteNonQuery();
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    // }
+    public override bool Equals(System.Object otherClient)
+    {
+      if (!(otherClient is Client))
+      {
+        return false;
+      }
+      else
+      {
+         Client newClient = (Client) otherClient;
+         bool idEquality = this.GetId() == newClient.GetId();
+         bool nameEquality = this.GetName() == newClient.GetName();
+         bool stylistEquality = this.GetStylistId() == newClient.GetStylistId();
+         return (idEquality && nameEquality && stylistEquality);
+       }
+    }
 
-
+    public static void ClearAll()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM clients;";
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+       conn.Dispose();
+      }
+    }
   }
 }
