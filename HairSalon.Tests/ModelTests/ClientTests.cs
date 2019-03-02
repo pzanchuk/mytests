@@ -16,7 +16,7 @@ namespace HairSalon.Tests
 
     public ClientTest()
     {
-      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=3306;database=pavel_zanchuk_test;";
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=pavel_zanchuk_test;";
     }
 
     [TestMethod]
@@ -37,7 +37,7 @@ namespace HairSalon.Tests
     public void GetAll_ReturnsEmptyList_ClientList()
     {
       //Arrange
-      List<Client> newList = new List<Client> { };
+      List<Client> newList = new List<Client> {};
 
       //Act
       List<Client> result = Client.GetAll();
