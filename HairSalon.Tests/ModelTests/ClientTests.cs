@@ -16,14 +16,14 @@ namespace HairSalon.Tests
 
     public ClientTest()
     {
-      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=3309;database=pavel_zanchuk_test;";
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=3306;database=pavel_zanchuk_test;";
     }
 
     [TestMethod]
     public void GetName_ReturnsName_String()
     {
       //Arrange
-      string name = "Name";
+      string name = "Pavel";
       Client newClient = new Client(name, 1);
 
       //Act
@@ -31,22 +31,6 @@ namespace HairSalon.Tests
 
       //Assert
       Assert.AreEqual(name, result);
-    }
-
-    [TestMethod]
-    public void SetName_SetName_String()
-    {
-      //Arrange
-      string name = "Name";
-      Client newClient = new Client(name, 1);
-
-      //Act
-      string updatedName = "Do the dishes";
-      newClient.SetName(updatedName);
-      string result = newClient.GetName();
-
-      //Assert
-      Assert.AreEqual(updatedName, result);
     }
 
     [TestMethod]

@@ -1,6 +1,11 @@
 
 <h3>Clients of @Model["stylist"].GetName()</h3>
 
+@if (@Model["clients"].Count == 0)
+{
+  <h3>@Model["stylist"].GetName() does not have any clients yet!</h3>
+}
+
 <ol>
 @foreach (var client in @Model["clients"])
 {
