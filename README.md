@@ -11,12 +11,17 @@ _This program allows user to keep track of Clients and Stylists._
 ## Specifications
 
 * _Program will accept user input for Stylist._
-
+  * _Example input: "Pavel"._
+  * _Example output: "Pavel"._
 * _Program will accept user input for clients._
-
-* _Program stores the data in two database with two tables(relationship one to many type)._
-
+  * _Example input: "Panatda"._
+  * _Example output: "Panatda"._
+* _Program will display in browser information about client _
+  * _Example input: click button "View all stylists" from home page, choose a stylist, from the list click on any client to show the details about that client._
+  * _Example output: info page about client will be shown._
 * _Program will display in browser information for each stylist that is currently available from DB._
+  * _Example input: click button "View all stylists" from home page, click on any stylist._
+  * _Example output: list of assigned clients will popup if any clients were added to that stylist._
 
 
 ## Setup/Installation Requirements
