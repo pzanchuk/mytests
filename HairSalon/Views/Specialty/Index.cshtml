@@ -1,0 +1,20 @@
+
+<h1>Our current SPECIALTIES:</h1>
+
+@if (@Model.Count == 0)
+{
+  <h3>No specialties have been added yet!</h3>
+}
+
+@foreach (var specialty in Model)
+{
+  <h3><a href='/specialties/@specialty.GetId()'>@specialty.GetSpecialty()</a></h3>
+}
+
+<form action='/specialties/new' method='get'>
+<button type="submit">Add a new specialty</button>
+</form>
+
+<form action='/' method='get'>
+<button type="submit">Back home</button>
+</form>
