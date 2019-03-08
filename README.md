@@ -16,7 +16,7 @@ _This program allows user to keep track of Clients and Stylists._
 * _Program will accept user input for clients._
   * _Example input: "Panatda"._
   * _Example output: "Panatda"._
-* _Program will display in browser information about client _
+* _Program will display in browser information about client_
   * _Example input: click button "View all stylists" from home page, choose a stylist, from the list click on any client to show the details about that client._
   * _Example output: info page about client will be shown._
 * _Program will display in browser information for each stylist that is currently available from DB._
