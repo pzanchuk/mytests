@@ -1,0 +1,11 @@
+<h1>Edit stylist @Model["stylist"].GetName()</h1>
+
+<form action="/stylists/@Model["stylist"].GetId()/update" method="post">
+  <label for="newName">New name:</label>
+  <input type="text" name="newName" value="@Model["stylist"].GetName()">
+  <button type="submit">Edit</button>
+</form>
+
+<form action='/stylists/@Model["stylist"].GetId()' method='get'>
+<button type="submit">Back to Stylist</button>
+</form>

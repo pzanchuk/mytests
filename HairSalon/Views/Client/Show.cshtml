@@ -10,3 +10,11 @@
 <form action='/stylists' method='get'>
 <button type="submit">View all stylists</button>
 </form>
+
+<form action='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/delete' method='post'>
+<button type="submit">Delete this client</button>
+</form>
+
+<form action='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/edit' method='get'>
+<button type="submit">Edit this client</button>
+</form>

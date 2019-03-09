@@ -146,8 +146,6 @@ namespace HairSalon.Models
         return stylists;
     }
 
-
-
 // ==============================TEST METHODS================================
 
     public override bool Equals(System.Object otherSpecialty)
